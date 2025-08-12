@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Influence OS — Our AI Agents</title>
+  <meta name="description" content="Influence OS — 6-Agent AI Suite for Marketing, Branding & Growth. Explore Social, Email, Brand, Analytics, Creative and Growth agents."/>
+  <style>
+    /* Mobile-first style (brand colors: #E53E3E red, #2D3748 dark gray, #4A5568 medium gray, #F7FAFC light gray, #FFFFFF white) */
+    :root{
+      --red:#E53E3E;
+      --dark:#2D3748;
+      --med:#4A5568;
+      --light:#F7FAFC;
+      --white:#FFFFFF;
+      --max-width:1100px;
+      --container-padding:16px;
+      --radius:12px;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 6px 18px rgba(45,55,72,0.08);
+      --accent-gradient: linear-gradient(90deg, rgba(229,62,62,0.1), rgba(45,55,72,0.03));
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      color:var(--dark);
+      background:linear-gradient(180deg,#F7FAFC 0%, #FFFFFF 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--max-width);margin:24px auto;padding:0 var(--container-padding);}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo .mark{width:44px;height:44px;border-radius:8px;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    .nav{display:flex;gap:14px;align-items:center}
+    .nav a{color:var(--med);text-decoration:none;font-weight:600}
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:20px;background:var(--accent-gradient);padding:22px;border-radius:14px;box-shadow:var(--card-shadow);
+    }
+    .hero h1{margin:0;font-size:24px;color:var(--dark)}
+    .hero p{margin:6px 0 0;color:var(--med)}
+    .agents-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .agent-card{
+      background:rgba(255,255,255,0.9);
+      border-radius:12px;padding:16px;box-shadow:var(--card-shadow);
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .agent-card .icon{width:64px;height:64px;border-radius:10px;background:var(--light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--red);flex-shrink:0}
+    .agent-card h3{margin:0;font-size:18px;color:var(--dark)}
+    .agent-card p{margin:6px 0 8px;color:var(--med);font-size:14px}
+    .features{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{background:#fff;border:1px solid rgba(45,55,72,0.06);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--med)}
+    .agent-actions{margin-left:auto;display:flex;flex-direction:column;gap:8px}
+    .btn{background:var(--red);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn.secondary{background:transparent;color:var(--red);border:1px solid rgba(229,62,62,0.12)}
+    /* Testimonials */
+    .testimonials{margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,250,252,0.9));box-shadow:var(--card-shadow)}
+    .test-list{display:flex;gap:12px;overflow:hidden;position:relative}
+    .test{min-width:280px;padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(45,55,72,0.03)}
+    .controls{display:flex;gap:8px;margin-top:12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(45,55,72,0.08)}
+    .dot.active{background:var(--red)}
+    footer{margin:28px 0 60px;color:var(--med);font-size:14px}
+    /* Desktop */
+    @media(min-width:820px){
+      .hero{grid-template-columns:1fr 420px;align-items:center}
+      .agents-grid{grid-template-columns:repeat(2,1fr)}
+      .agent-card{align-items:center}
+      .agent-actions{align-items:flex-end}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="mark">IO</div>
+        <div>
+          <div style="font-weight:800;color:var(--dark)">Influence OS</div>
+          <div style="font-size:12px;color:var(--med);margin-top:2px">6-Agent AI Suite for Marketing & Growth</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a class="btn secondary" href="#get-started">Get Demo</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">AI agents built to scale brands — faster.</h1>
+        <p>Influence OS combines six specialised AI agents to automate creative, marketing, analytics and growth — so teams focus on strategy, not spreadsheets.</p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" onclick="location.href='pricing.html'">See Pricing</button>
+          <button class="btn secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Demo</button>
+        </div>
+
+        <div style="margin-top:18px;color:var(--med);font-size:14px">
+          <strong>Key outcomes:</strong> Faster time-to-post, personalized campaigns, measurable ROI, and automated creative production.
+        </div>
+      </div>
+
+      <div style="padding:12px">
+        <div style="font-weight:700;margin-bottom:8px;color:var(--dark)">6 Agents Overview</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Social Media</strong><div style="font-size:13px;color:var(--med)">Auto-posting & engagement</div></div>
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Email</strong><div style="font-size:13px;color:var(--med)">Personalized campaigns</div></div>
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Brand</strong><div style="font-size:13px;color:var(--med)">Positioning & messaging</div></div>
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Analytics</strong><div style="font-size:13px;color:var(--med)">Insights & dashboards</div></div>
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Creative</strong><div style="font-size:13px;color:var(--med)">Assets & copy</div></div>
+          <div style="padding:10px;background:#fff;border-radius:10px;box-shadow:var(--card-shadow)"><strong>Growth</strong><div style="font-size:13px;color:var(--med)">Lead gen & scaling</div></div>
+        </div>
+      </div>
+    </section>
+
+    <main style="margin-top:18px">
+      <section aria-labelledby="agents-title">
+        <h2 id="agents-title" style="margin:0 0 10px 0;color:var(--dark)">Our AI Agents (Deep Dive)</h2>
+        <div class="agents-grid">
+          <!-- Social Media Agent -->
+          <article class="agent-card" id="agent-social">
+            <div class="icon">SM</div>
+            <div>
+              <h3>Social Media Agent</h3>
+              <p>Automate content creation, scheduling, cross-platform posting and engagement. Built-in trend detection and hashtag optimization.</p>
+              <div class="features">
+                <span class="chip">Auto-post</span>
+                <span class="chip">Trend alerts</span>
+                <span class="chip">Engagement AI</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Social Media Agent')">Request Demo</button>
+            </div>
+          </article>
+
+          <!-- Email Marketing -->
+          <article class="agent-card" id="agent-email">
+            <div class="icon">EM</div>
+            <div>
+              <h3>Email Marketing Agent</h3>
+              <p>Personalized email campaigns, subject-line A/B, send-time optimization and automated nurture flows that improve deliverability and conversion.</p>
+              <div class="features">
+                <span class="chip">Personalization</span>
+                <span class="chip">A/B testing</span>
+                <span class="chip">Automation</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Email Marketing Agent')">Book a Demo</button>
+            </div>
+          </article>
+
+          <!-- Brand Strategy -->
+          <article class="agent-card" id="agent-brand">
+            <div class="icon">BS</div>
+            <div>
+              <h3>Brand Strategy Agent</h3>
+              <p>Data-informed brand positioning, messaging frameworks, and identity guidelines to ensure consistent voice and market fit.</p>
+              <div class="features">
+                <span class="chip">Positioning</span><span class="chip">Messaging</span><span class="chip">Identity</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Brand Strategy Agent')">Request Demo</button>
+            </div>
+          </article>
+
+          <!-- Analytics & Insights -->
+          <article class="agent-card" id="agent-analytics">
+            <div class="icon">AI</div>
+            <div>
+              <h3>Analytics & Insights Agent</h3>
+              <p>Automated dashboards, anomaly detection, and prescriptive recommendations tailored to KPIs and stakeholder reporting.</p>
+              <div class="features">
+                <span class="chip">Dashboards</span><span class="chip">Anomaly detection</span><span class="chip">Auto reports</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Analytics & Insights Agent')">See Demo</button>
+            </div>
+          </article>
+
+          <!-- Creative Content -->
+          <article class="agent-card" id="agent-creative">
+            <div class="icon">CC</div>
+            <div>
+              <h3>Creative Content Agent</h3>
+              <p>Generates visuals, short-form video concepts, ad creatives, and high-quality copy that match brand voice and campaign goals.</p>
+              <div class="features">
+                <span class="chip">Visuals</span><span class="chip">Copy</span><span class="chip">Video concepts</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Creative Content Agent')">Request Demo</button>
+            </div>
+          </article>
+
+          <!-- Growth Optimization -->
+          <article class="agent-card" id="agent-growth">
+            <div class="icon">GO</div>
+            <div>
+              <h3>Growth Optimization Agent</h3>
+              <p>Lead capture strategies, funnel optimization, experimentation frameworks and automated CRO to scale cost-effectively.</p>
+              <div class="features">
+                <span class="chip">Lead gen</span><span class="chip">CRO</span><span class="chip">Scale</span>
+              </div>
+            </div>
+            <div class="agent-actions">
+              <button class="btn" onclick="requestDemo('Growth Optimization Agent')">Book a Demo</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="testimonials" aria-labelledby="test-title" style="margin-top:18px">
+        <h3 id="test-title" style="margin:0 0 10px 0;color:var(--dark)">What customers say</h3>
+        <div class="test-list" id="testimonialContainer" aria-live="polite">
+          <!-- JS will populate -->
+        </div>
+        <div class="controls" id="testControls" aria-hidden="false"></div>
+      </section>
+
+      <section id="contact" style="margin-top:22px;padding:16px;border-radius:12px;background:#fff;box-shadow:var(--card-shadow)">
+        <h3 style="margin-top:0">Contact & Demo</h3>
+        <p style="color:var(--med)">Ready to see Influence OS in action? Request a demo and we'll customize a walkthrough for your team.</p>
+        <form id="demoForm" onsubmit="submitForm(event)" style="display:grid;gap:8px;max-width:520px">
+          <input name="name" required placeholder="Full name" style="padding:10px;border-radius:8px;border:1px solid #e6e9ee"/>
+          <input name="email" type="email" required placeholder="Work email" style="padding:10px;border-radius:8px;border:1px solid #e6e9ee"/>
+          <select name="interest" style="padding:10px;border-radius:8px;border:1px solid #e6e9ee">
+            <option value="general">General demo</option>
+            <option value="social">Social Media Agent</option>
+            <option value="email">Email Marketing Agent</option>
+            <option value="brand">Brand Strategy Agent</option>
+            <option value="analytics">Analytics Agent</option>
+            <option value="creative">Creative Agent</option>
+            <option value="growth">Growth Agent</option>
+          </select>
+          <div style="display:flex;gap:8px">
+            <button class="btn" type="submit">Request Demo</button>
+            <button type="button" class="btn secondary" onclick="location.href='pricing.html'">View Pricing</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Influence OS — Built for growth. · <a href="privacy.html" style="color:var(--med)">Privacy</a> · <a href="#" style="color:var(--med)">Terms</a>
+    </footer>
+  </div>
+
+  <script>
+    // small utility & demo behaviors
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function requestDemo(agentName){
+      const el = document.getElementsByName('interest')[0];
+      if(el){ el.value = agentName.toLowerCase().split(' ')[0]; }
+      document.getElementById('demoForm').scrollIntoView({behavior:'smooth'});
+    }
+
+    function submitForm(e){
+      e.preventDefault();
+      const f = e.target;
+      const formData = {
+        name: f.name.value,
+        email: f.email.value,
+        interest: f.interest.value
+      };
+      // Replace this with your backend / Wix Form action or Velo fetch to backend
+      alert('Thanks — demo requested for: ' + formData.interest + '\\nWe will contact ' + formData.email);
+      f.reset();
+    }
+
+    // Testimonials carousel (lightweight)
+    const testimonials = [
+      {name:'Asha Verma — CMO, Zephyr', text:'Influence OS cut our campaign build time by 60% and increased engagement by 3x.'},
+      {name:'Rohit Patel — Founder, BrightBox', text:'The analytics agent surfaced insights we had missed for months — huge ROI.'},
+      {name:'Simran Kaur — Head of Growth, Verve', text:'Creative generation and A/B test ideas saved weeks of work.'}
+    ];
+
+    const container = document.getElementById('testimonialContainer');
+    const controls = document.getElementById('testControls');
+
+    let activeTest = 0;
+    function renderTests(){
+      container.innerHTML = '';
+      // show two cards on wide screens, one on small
+      for(let i=0;i<testimonials.length;i++){
+        const t = testimonials[i];
+        const div = document.createElement('div');
+        div.className = 'test';
+        div.setAttribute('role','article');
+        div.innerHTML = '<strong style="color:var(--dark)">' + t.name + '</strong><p style="margin:8px 0 0;color:var(--med)">' + t.text + '</p>';
+        container.appendChild(div);
+      }
+      renderControls();
+    }
+
+    function renderControls(){
+      controls.innerHTML = '';
+      testimonials.forEach((_,i)=>{
+        const d = document.createElement('div');
+        d.className = 'dot' + (i===activeTest?' active':'');
+        d.style.cursor = 'pointer';
+        d.addEventListener('click',()=>{ activeTest = i; focusTest();});
+        controls.appendChild(d);
+      });
+      focusTest();
+    }
+
+    function focusTest(){
+      const width = container.children[0].offsetWidth + 12;
+      container.scrollTo({left: width * activeTest, behavior:'smooth'});
+      // update dots
+      Array.from(controls.children).forEach((c,idx)=> c.className = 'dot' + (idx===activeTest? ' active':''));
+    }
+
+    // auto-advance
+    setInterval(()=>{ activeTest = (activeTest + 1) % testimonials.length; focusTest(); }, 6000);
+
+    // initial render
+    renderTests();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Influence OS — Pricing Calculator</title>
+  <meta name="description" content="Custom pricing calculator for Influence OS. Pick agents, seats, contract length and add-ons to get a transparent quote."/>
+  <style>
+    :root{
+      --red:#E53E3E;--dark:#2D3748;--med:#4A5568;--light:#F7FAFC;--white:#FFFFFF;
+      --max-width:1100px;--pad:16px;--radius:12px;--shadow:0 8px 22px rgba(45,55,72,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial;margin:0;padding:0;background:linear-gradient(180deg,#F7FAFC,#fff);color:var(--dark)}
+    .wrap{max-width:var(--max-width);margin:24px auto;padding:0 var(--pad)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:10px}
+    .card{background:#fff;border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-top:12px}
+    h1{font-size:20px;margin:0}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+    label{display:block;font-weight:700;margin-bottom:6px;color:var(--med);font-size:13px}
+    .checkboxes{display:flex;flex-wrap:wrap;gap:8px}
+    .agent-item{border:1px solid rgba(45,55,72,0.06);padding:10px;border-radius:10px;min-width:160px;display:flex;justify-content:space-between;align-items:center}
+    input[type="number"]{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ee}
+    .summary{background:linear-gradient(180deg,#fff,#F7FAFC);padding:16px;border-radius:10px}
+    .price{font-size:28px;font-weight:800;color:var(--red)}
+    .small{font-size:13px;color:var(--med)}
+    .btn{background:var(--red);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    @media(min-width:960px){
+      .grid{grid-template-columns:1fr 360px}
+      .agent-item{min-width:200px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><div style="width:44px;height:44;border-radius:8px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800">IO</div><div style="font-weight:800">Influence OS</div></div>
+      <nav style="display:flex;gap:10px;align-items:center">
+        <a href="agents.html" style="color:var(--med);text-decoration:none;">Agents</a>
+        <a href="#" class="btn" style="padding:8px 12px">Get Demo</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <h1>Interactive Pricing Calculator</h1>
+      <p class="small">Select agents, seats, term and optional add-ons. Instant transparent estimate below.</p>
+
+      <div class="grid" style="margin-top:12px">
+        <section>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div>
+              <label>Choose AI Agents</label>
+              <div class="checkboxes" id="agentsList" role="group" aria-label="Select agents">
+                <!-- agents generated by JS -->
+              </div>
+            </div>
+
+            <div>
+              <label for="seats">Number of seats (users)</label>
+              <input id="seats" type="number" min="1" value="5" />
+            </div>
+
+            <div>
+              <label for="term">Contract term</label>
+              <select id="term">
+                <option value="monthly">Monthly (no discount)</option>
+                <option value="annual">Annual (12 months, 12% discount)</option>
+                <option value="twoyear">2-year (24 months, 20% discount)</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Add-ons</label>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <label style="display:flex;align-items:center;gap:8px">
+                  <input id="addon-support" type="checkbox" /> Dedicated support (+₹500 / month)
+                </label>
+                <label style="display:flex;align-items:center;gap:8px">
+                  <input id="addon-onboard" type="checkbox" /> Onboarding package (one-time ₹2,500)
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside>
+          <div class="summary">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-size:13px;color:var(--med)">Estimated monthly price</div>
+                <div class="price" id="monthlyPrice">₹0.00</div>
+                <div class="small" id="termNote">—</div>
+              </div>
+              <div style="text-align:right">
+                <button class="btn" onclick="requestDemo()">Request Demo</button>
+                <div style="height:6px"></div>
+                <button class="btn" style="background:transparent;color:var(--red);border:1px solid rgba(229,62,62,0.12)" onclick="downloadQuote()">Download Quote</button>
+              </div>
+            </div>
+
+            <hr style="margin:12px 0;border:none;border-top:1px solid rgba(45,55,72,0.06)"/>
+
+            <div id="breakdown">
+              <!-- JS populated cost breakdown -->
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <p class="small" style="margin-top:12px">Pricing shown is illustrative. For enterprise quotes, contact sales for custom SLAs and integrations.</p>
+    </main>
+
+    <footer style="margin:18px 0;color:var(--med)">© <span id="y"></span> Influence OS · <a href="#" style="color:var(--med)">Privacy</a></footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Pricing model definitions (example values — adapt to your real pricing)
+    const AGENT_BASE = {
+      'Social Media': 400,    // base monthly per agent
+      'Email Marketing': 300,
+      'Brand Strategy': 350,
+      'Analytics & Insights': 450,
+      'Creative Content': 500,
+      'Growth Optimization': 420
+    };
+
+    const SEAT_PRICE = 18; // per seat per month (flat)
+    const DEDICATED_SUPPORT = 500; // per month if checked
+    const ONBOARDING_FEE = 2500; // one-time
+
+    // Discounts for longer terms (relative to total monthly * months)
+    const TERM = {
+      'monthly': {months:1, discount:0},
+      'annual': {months:12, discount:0.12},
+      'twoyear': {months:24, discount:0.20}
+    };
+
+    // Build agents list UI
+    const agentsListEl = document.getElementById('agentsList');
+    const agents = Object.keys(AGENT_BASE);
+    agents.forEach(name=>{
+      const wrapper = document.createElement('label');
+      wrapper.className = 'agent-item';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = name;
+      checkbox.checked = (name==='Social Media' || name==='Analytics & Insights'); // default selection
+      checkbox.addEventListener('change', compute);
+      const left = document.createElement('div');
+      left.style.display='flex';left.style.flexDirection='column';
+      left.innerHTML = '<strong style="font-size:14px;color:var(--dark)">' + name + '</strong><span class="small" style="color:var(--med)">₹' + AGENT_BASE[name] + ' / month</span>';
+      wrapper.appendChild(left);
+      wrapper.appendChild(checkbox);
+      agentsListEl.appendChild(wrapper);
+    });
+
+    // Attach events to inputs
+    document.getElementById('seats').addEventListener('input', compute);
+    document.getElementById('term').addEventListener('change', compute);
+    document.getElementById('addon-support').addEventListener('change', compute);
+    document.getElementById('addon-onboard').addEventListener('change', compute);
+
+    // Core compute function — calculates monthly price & shows breakdown
+    function compute(){
+      // Gather inputs
+      const selectedAgents = Array.from(agentsListEl.querySelectorAll('input[type=checkbox]:checked')).map(i=>i.value);
+      const seats = Math.max(1, parseInt(document.getElementById('seats').value || 1));
+      const termKey = document.getElementById('term').value;
+      const addonSupport = document.getElementById('addon-support').checked;
+      const addonOnboard = document.getElementById('addon-onboard').checked;
+
+      // Calculate agent monthly subtotal
+      let agentsMonthly = 0;
+      selectedAgents.forEach(a => { agentsMonthly += Number(AGENT_BASE[a]); });
+
+      // Seat total monthly
+      const seatsMonthly = Number(seats) * Number(SEAT_PRICE);
+
+      // Add-on monthly
+      const supportMonthly = addonSupport ? Number(DEDICATED_SUPPORT) : 0;
+
+      // Monthly total before term discounts
+      const monthlyBeforeDiscount = agentsMonthly + seatsMonthly + supportMonthly;
+
+      // Now apply term-level discount as required; we compute *monthly* effective price after discount
+      const term = TERM[termKey] || TERM['monthly'];
+      // total for full term (months * monthlyBeforeDiscount) - discount percent
+      const totalForTerm = monthlyBeforeDiscount * term.months * (1 - term.discount);
+      // effective monthly price:
+      const monthlyEffective = totalForTerm / term.months;
+
+      // One-time fees
+      const onboarding = addonOnboard ? Number(ONBOARDING_FEE) : 0;
+
+      // Format currency helper
+      const fmt = (v) => '₹' + Number(v).toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+
+      // Update UI
+      document.getElementById('monthlyPrice').textContent = fmt(monthlyEffective);
+      const termNote = document.getElementById('termNote');
+      termNote.textContent = termKey === 'monthly' ? 'Billed monthly. No term discount.' : `Billed over ${term.months} months. ${Math.round(term.discount*100)}% total discount applied.`;
+
+      // Breakdown details
+      const breakdown = document.getElementById('breakdown');
+      breakdown.innerHTML = `
+        <div style="display:flex;justify-content:space-between"><div class="small">Agents (monthly)</div><div class="small">${fmt(agentsMonthly)}</div></div>
+        <div style="display:flex;justify-content:space-between"><div class="small">Seats (${seats} × ${fmt(SEAT_PRICE)})</div><div class="small">${fmt(seatsMonthly)}</div></div>
+        <div style="display:flex;justify-content:space-between"><div class="small">Support (monthly)</div><div class="small">${fmt(supportMonthly)}</div></div>
+        <div style="height:8px"></div>
+        <div style="display:flex;justify-content:space-between;font-weight:700"><div>Total (before term discount)</div><div>${fmt(monthlyBeforeDiscount)}</div></div>
+        <div style="height:10px"></div>
+        <div style="display:flex;justify-content:space-between"><div class="small">Effective monthly after term</div><div class="small">${fmt(monthlyEffective)}</div></div>
+        ${onboarding ? `<div style="height:10px"></div><div style="display:flex;justify-content:space-between"><div class="small">One-time onboarding fee</div><div class="small">${fmt(onboarding)}</div></div>` : ''}
+      `;
+
+      // Save last computed for download/CTA
+      window._lastQuote = {
+        selectedAgents, seats, termKey, addonSupport, addonOnboard, monthlyEffective, totalForTerm, onboarding
+      };
+    }
+
+    // initial compute
+    compute();
+
+    // CTA actions
+    function requestDemo(){
+      // In Wix: connect to a lightbox or form submission (Velo) instead of alert
+      alert('Demo request — we will reach out. (In production, this would open your booking flow.)');
+    }
+
+    function downloadQuote(){
+      const q = window._lastQuote || {};
+      const agentsTxt = (q.selectedAgents || []).join(', ') || 'None';
+      const text = [
+        'Influence OS — Pricing Quote',
+        'Date: ' + new Date().toLocaleString(),
+        '',
+        'Selected agents: ' + agentsTxt,
+        'Seats: ' + (q.seats || 0),
+        'Term: ' + (q.termKey || 'monthly'),
+        'Dedicated support: ' + (q.addonSupport ? 'Yes' : 'No'),
+        'Onboarding: ' + (q.addonOnboard ? 'Yes (₹2,500)' : 'No'),
+        '',
+        'Effective monthly (after term): $' + (q.monthlyEffective ? q.monthlyEffective.toFixed(2) : '0.00'),
+        'One-time fees: ₹' + (q.onboarding ? q.onboarding.toFixed(2) : '0.00'),
+      ].join('\\n');
+
+      // Trigger download as .txt (simple). You can generate a PDF server-side or with client libs.
+      const blob = new Blob([text],{type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'influence-os-quote.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+  </script>
+  <script src="web.js"></script>
+  <script src="backend.js"></script>
+</body>
+</html>
